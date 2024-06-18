@@ -22,13 +22,9 @@ classDiagram
     }
 
     class Product {
-        -Long id
-        -String description
     }
 
     class Branch {
-        -Long id
-        -String descrption
     }
 
     Service o-- BaseTemplate
