@@ -31,9 +31,9 @@ classDiagram
         -String descrption
     }
 
-    BaseTemplate o-- Service
-    BaseTemplate o-- Product
-    BaseTemplate o-- Branch
+    Service o-- BaseTemplate
+    Product o-- BaseTemplate
+    Branch o-- BaseTemplate
     Company o-- Service
     Company o-- Product
     Company o-- Branch
