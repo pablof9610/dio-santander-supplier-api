@@ -5,34 +5,36 @@
 ```mermaid
 classDiagram
     class Company {
-        +String name
-        +String number
-        +String zipCode
-        +String branch
-        +Service[] services
+        -String name
+        -String number
+        -String zipCode
+        -Branch branch
+        -Service[] services
+        -Product[] products
     }
 
-    class Supplier {
-        +Product[] products
-    }
-
-    class Shipper {
-        +float serviceCost
-        +String transportationType
+    class BaseTemplate {
+        -Long id
+        -String description
     }
 
     class Service {
-        +String type
-        +String description
     }
 
     class Product {
-        +String name
-        +String branch
+        -Long id
+        -String description
     }
 
-    Company <|-- Supplier
-    Company <|-- Shipper
+    class Branch {
+        -Long id
+        -String descrption
+    }
+
+    BaseTemplate o-- Service
+    BaseTemplate o-- Product
+    BaseTemplate o-- Branch
     Company o-- Service
-    Supplier o-- Product
+    Company o-- Product
+    Company o-- Branch
 ```
