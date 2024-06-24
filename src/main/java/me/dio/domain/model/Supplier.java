@@ -4,12 +4,16 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
-@Entity(name = "tb_company")
-public class Company {
+@Entity(name = "tb_supplier")
+public class Supplier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    public Long getId() {
+        return id;
+    }
 
     @Column(nullable = false)
     private String name;
@@ -17,9 +21,8 @@ public class Company {
     @Column(nullable = false)
     private String number;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn()
-    private Branch branch;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Branch> branch;
 
     @Column(nullable = false)
     private String zipCode;
@@ -46,11 +49,11 @@ public class Company {
         this.number = number;
     }
 
-    public Branch getBranch() {
+    public List<Branch> getBranch() {
         return branch;
     }
 
-    public void setBranch(Branch branch) {
+    public void setBranch(List<Branch> branch) {
         this.branch = branch;
     }
 
