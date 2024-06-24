@@ -4,11 +4,11 @@
 
 ```mermaid
 classDiagram
-    class Company {
+    class Supplier {
         -String name
         -String number
         -String zipCode
-        -Branch branch
+        -Branch[] branches
         -Service[] services
         -Product[] products
     }
@@ -30,7 +30,7 @@ classDiagram
     Service o-- BaseTemplate
     Product o-- BaseTemplate
     Branch o-- BaseTemplate
-    Company o-- Service
-    Company o-- Product
-    Company o-- Branch
+    Supplier o-- Service
+    Supplier o-- Product
+    Supplier o-- Branch
 ```
